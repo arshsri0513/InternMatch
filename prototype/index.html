@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InternMatch — Discover, Compare, Save</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">IM</span><span>InternMatch</span></div>
+    <div class="status"><span class="dot"></span> Prototype · No account required</div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">ONE-FLOW PROTOTYPE</p>
+        <h1>Find internships that fit you.</h1>
+        <p class="sub">Discover relevant opportunities, compare the important details side by side, and save the ones worth revisiting.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-number" id="savedCount">0</div>
+        <div>saved opportunities</div>
+      </div>
+    </section>
+
+    <section class="profile-panel">
+      <div>
+        <label for="skills">Your skills</label>
+        <input id="skills" placeholder="e.g. Python, Java, SQL" maxlength="160">
+      </div>
+      <div>
+        <label for="location">Preferred location</label>
+        <select id="location">
+          <option value="">Any location</option>
+          <option>Remote</option>
+          <option>Delhi</option>
+          <option>Bengaluru</option>
+          <option>Mumbai</option>
+          <option>Pune</option>
+        </select>
+      </div>
+      <div>
+        <label for="mode">Work mode</label>
+        <select id="mode">
+          <option value="">Any mode</option>
+          <option>Remote</option>
+          <option>Hybrid</option>
+          <option>On-site</option>
+        </select>
+      </div>
+      <button id="discoverBtn" class="primary">Discover matches</button>
+    </section>
+
+    <section class="toolbar">
+      <div>
+        <h2>Opportunities</h2>
+        <p id="resultMeta">Showing all prototype opportunities</p>
+      </div>
+      <div class="toolbar-actions">
+        <input id="search" class="search" placeholder="Search role or skill…" maxlength="80">
+        <button id="compareBtn" class="secondary">Compare selected <span id="compareCount">0</span></button>
+      </div>
+    </section>
+
+    <div id="emptyState" class="empty hidden">
+      <h3>No matching opportunities</h3>
+      <p>Try removing a filter or using a broader skill.</p>
+    </div>
+    <section id="cards" class="grid" aria-live="polite"></section>
+
+    <section id="comparePanel" class="compare-panel hidden">
+      <div class="compare-head">
+        <div>
+          <p class="eyebrow">COMPARE</p>
+          <h2>Side-by-side decision view</h2>
+        </div>
+        <button id="closeCompare" class="icon-btn" aria-label="Close comparison">×</button>
+      </div>
+      <div id="compareTableWrap"></div>
+    </section>
+
+    <section class="scope-note">
+      <strong>Prototype scope:</strong> This version deliberately excludes accounts, messaging, payments, applications, automated scraping, and production-grade recommendations.
+    </section>
+  </main>
+
+  <footer>InternMatch prototype · Built to test the Discover → Compare → Save flow</footer>
+  <script src="app.js"></script>
+</body>
+</html>

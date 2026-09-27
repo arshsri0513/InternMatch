@@ -12,3 +12,4 @@ html.dark footer { border-top-color: #374151; color: #9ca3af; }
 html.dark .save.saved { background: #374151; color: #9ca3af; }
 html.dark .scope-note, html.dark .error-box { background: #374151; border-color: #4b5563; color: #e5e7eb; }
 html.dark th, html.dark td { border-bottom-color: #374151; color: #e5e7eb; }
+.theme-select { width: auto !important; padding: 6px 10px !important; margin-right: 4px !important; } .auth-buttons button { white-space: nowrap; }

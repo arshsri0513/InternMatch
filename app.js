@@ -63,25 +63,27 @@ function render() {
   data.forEach(x => {
     const div = document.createElement("article");
     div.className = "card";
-    div.innerHTML = 
-      <input class="check" type="checkbox"  + (selected.has(x.id) ? "checked" : "") +  aria-label="Select  + x.role + ">
+    div.innerHTML = `
+      <input class="check" type="checkbox" ${selected.has(x.id) ? "checked" : ""} aria-label="Select ${x.role}">
       <div class="card-top">
-        <div class="company"> + x.company + </div>
-        <div class="muted"> + x.mode + </div>
+        <div class="company">${x.company}</div>
+        <div class="muted">${x.mode}</div>
       </div>
-      <div class="role"> + x.role + </div>
-      <div class="muted"> + x.description + </div>
-      <div class="tags"> + x.skills.map(s => '<span class="tag">' + s + '</span>').join("") + </div>
+      <div class="role">${x.role}</div>
+      <div class="muted">${x.description}</div>
+      <div class="tags">${x.skills.map(s => `<span class="tag">${s}</span>`).join("")}</div>
       <div class="details">
-        <div class="detail">Location <strong> + x.location.substring(0,25) + </strong></div>
-        <div class="detail">Salary <strong> + x.stipend.substring(0,25) + </strong></div>
-        <div class="detail">Posted <strong> + x.deadline + </strong></div>
-        <div class="detail">ID <strong># + String(x.id).substring(0, 6) + </strong></div>
+        <div class="detail">Location <strong>${x.location.substring(0,25)}</strong></div>
+        <div class="detail">Salary <strong>${x.stipend.substring(0,25)}</strong></div>
+        <div class="detail">Posted <strong>${x.deadline}</strong></div>
+        <div class="detail">ID <strong>#${String(x.id).substring(0, 6)}</strong></div>
       </div>
       <div class="card-actions">
-        <button class="save  + (saved.has(x.id) ? "saved" : "") + "> + (saved.has(x.id) ? "✓ Saved" : "Save opportunity") + </button>
+        <button class="save ${saved.has(x.id) ? "saved" : ""}">
+          ${saved.has(x.id) ? "✓ Saved" : "Save opportunity"}
+        </button>
       </div>
-    ;
+    `;
     div.querySelector(".check").addEventListener("change", e => {
       if (e.target.checked) {
         if (selected.size >= 2) {
@@ -104,7 +106,7 @@ function render() {
     cards.appendChild(div);
   });
 
-  resultMeta.textContent = data.length + " opportunities shown • " + selected.size + "/2 selected for comparison";
+  resultMeta.textContent = `${data.length} opportunities shown • ${selected.size}/2 selected for comparison`;
   updateCounts();
 }
 
@@ -119,15 +121,17 @@ function showCompare() {
     return;
   }
   const items = internships.filter(x => selected.has(x.id));
-  compareTableWrap.innerHTML = '<table class="compare-table"><tbody>' + 
-    '<tr><th>Role</th>' + items.map(x => '<td><strong>' + x.role + '</strong><br>' + x.company + '</td>').join("") + '</tr>' +
-    '<tr><th>Location</th>' + items.map(x => '<td>' + x.location + '</td>').join("") + '</tr>' +
-    '<tr><th>Mode</th>' + items.map(x => '<td>' + x.mode + '</td>').join("") + '</tr>' +
-    '<tr><th>Salary</th>' + items.map(x => '<td>' + x.stipend + '</td>').join("") + '</tr>' +
-    '<tr><th>Posted</th>' + items.map(x => '<td>' + x.deadline + '</td>').join("") + '</tr>' +
-    '<tr><th>Skills</th>' + items.map(x => '<td>' + x.skills.join(", ") + '</td>').join("") + '</tr>' +
-    '<tr><th>Description</th>' + items.map(x => '<td>' + x.description + '</td>').join("") + '</tr>' +
-    '</tbody></table>';
+  compareTableWrap.innerHTML = `
+    <table class="compare-table"><tbody>
+      <tr><th>Role</th>${items.map(x => `<td><strong>${x.role}</strong><br>${x.company}</td>`).join("")}</tr>
+      <tr><th>Location</th>${items.map(x => `<td>${x.location}</td>`).join("")}</tr>
+      <tr><th>Mode</th>${items.map(x => `<td>${x.mode}</td>`).join("")}</tr>
+      <tr><th>Salary</th>${items.map(x => `<td>${x.stipend}</td>`).join("")}</tr>
+      <tr><th>Posted</th>${items.map(x => `<td>${x.deadline}</td>`).join("")}</tr>
+      <tr><th>Skills</th>${items.map(x => `<td>${x.skills.join(", ")}</td>`).join("")}</tr>
+      <tr><th>Description</th>${items.map(x => `<td>${x.description}</td>`).join("")}</tr>
+    </tbody></table>
+  `;
   comparePanel.classList.remove("hidden");
   comparePanel.scrollIntoView({ behavior: "smooth" });
 }

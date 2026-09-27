@@ -5,11 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>InternMatch â€” Discover, Compare, Save</title>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    function applyTheme(theme) {
+      if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    function changeTheme(theme) {
+      localStorage.setItem('theme', theme);
+      applyTheme(theme);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'system';
+    applyTheme(savedTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      const selects = document.querySelectorAll('.theme-select');
+      selects.forEach(s => s.value = savedTheme);
+    });
+  </script>
 </head>
 <body>
   <header class="topbar">
     <div class="brand"><span class="brand-mark">IM</span><span>InternMatch</span></div>
-    <div class="auth-buttons" style="display: flex; gap: 10px;"><button class="secondary" onclick="window.location.href='login.html'">Log in</button><button class="primary" onclick="window.location.href='signup.html'">Sign up</button></div>
+    <div class="auth-buttons" style="display: flex; gap: 10px;"> <select class="theme-select secondary" onchange="changeTheme(this.value)" style="padding: 8px 12px; border-radius: 10px; font-weight: 750; cursor: pointer; outline: none; margin-right: 10px; border: 1px solid #d8dee8;">
+      <option value="system">System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select><button class="secondary" onclick="window.location.href='login.html'">Log in</button><button class="primary" onclick="window.location.href='signup.html'">Sign up</button></div>
   </header>
 
   <main class="shell">
@@ -81,6 +104,7 @@
   <script src="app.js"></script>
 </body>
 </html>
+
 
 
 

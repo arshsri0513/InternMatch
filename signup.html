@@ -80,10 +80,34 @@
       text-decoration: underline;
     }
   </style>
+  <script>
+    function applyTheme(theme) {
+      if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    function changeTheme(theme) {
+      localStorage.setItem('theme', theme);
+      applyTheme(theme);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'system';
+    applyTheme(savedTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      const selects = document.querySelectorAll('.theme-select');
+      selects.forEach(s => s.value = savedTheme);
+    });
+  </script>
 </head>
 <body>
   <header class="topbar">
     <div class="brand"><span class="brand-mark">IM</span><span>InternMatch</span></div>
+    <select class="theme-select secondary" onchange="changeTheme(this.value)" style="padding: 8px 12px; border-radius: 10px; font-weight: 750; cursor: pointer; outline: none; margin-right: 10px; border: 1px solid #d8dee8;">
+      <option value="system">System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
   </header>
 
   <div class="auth-container">
@@ -124,5 +148,6 @@
   </div>
 </body>
 </html>
+
 
 

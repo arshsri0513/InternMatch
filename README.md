@@ -1,47 +1,40 @@
-# InternMatch Prototype
+﻿# InternMatch 🚀
 
-## One flow
-**Discover → Compare → Save**
+**Live Demo:** [intern-match-psi.vercel.app](https://intern-match-psi.vercel.app/)
 
-A student enters a few skills and optional preferences, reviews a small set of prototype internship opportunities, selects two opportunities for side-by-side comparison, and saves opportunities for later.
+InternMatch is a modern, responsive internship and remote job discovery platform. Built to simplify the job hunt, it pulls live data directly from the internet and allows you to easily discover, filter, and compare opportunities side-by-side.
 
-## Scope
-This is a deliberately narrow prototype for testing the core comparison/discovery mechanism.
+## ✨ Features
 
-### Included
-- Skill-based filtering
-- Location and work-mode filters
-- Keyword search
-- Opportunity cards
-- Select up to two opportunities
-- Side-by-side comparison
-- Save/unsave with browser localStorage
-- Basic empty/unexpected input handling
+- **Live Data Integration:** Automatically fetches the latest remote software jobs and internships using the Remotive API.
+- **Smart Filtering:** Filter opportunities instantly by typing any skill (e.g., React, Python, AWS), location, or work mode.
+- **Opportunity Comparison:** Select two opportunities and view them in a side-by-side table to make data-driven decisions.
+- **Save for Later:** Bookmark your favorite roles; they are securely saved in your browser's local storage.
+- **Light / Dark Mode:** Fully responsive UI with a built-in theme toggle that respects your system preferences.
+- **Seamless Auth Flow:** Clean mock login and signup screens.
 
-### Deliberately excluded
-- Accounts/authentication
-- Messaging
-- Payments
-- Applications
-- Live scraping
-- Production recommendation models
-- Notifications
-- Admin tools
-- Real personal data
+## 🛠️ Built With
 
-## Run locally
-No backend or package installation is required.
+- **HTML5 & CSS3** (Vanilla, Mobile-First Design)
+- **JavaScript (ES6+)**
+- **Remotive API** (Live job data)
+- **Vercel** (Hosting and Continuous Deployment)
 
-1. Open `index.html` directly in a browser, or serve the folder with any static server.
-2. Example with Python:
-   `python -m http.server 8000`
-3. Open `http://localhost:8000`.
+## 💻 Getting Started
 
-## Data
-The internship records in `app.js` are **prototype/demo records**, not live opportunities. They are not evidence that these internships are currently open.
+To run this project locally:
 
-## Testing
-The Build Log documents the intended break tests and stranger-test protocol. Any real user-test results should be added after actual sessions; do not represent planned tests as completed research.
+1. Clone the repository:
+   `ash
+   git clone https://github.com/arshsri0513/InternMatch.git
+   `
+2. Navigate into the directory:
+   `ash
+   cd InternMatch
+   `
+3. Open index.html in your favorite browser! (Or use VS Code Live Server). No build steps required.
 
-## Credentials
-No API keys, `.env` files, or credentials are included.
+## 👨‍💻 Developed By
+
+**Arsh Srivastava**
+- GitHub: [@arshsri0513](https://github.com/arshsri0513)

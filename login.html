@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -79,6 +79,16 @@
     .footer-text a:hover {
       text-decoration: underline;
     }
+    .error-box {
+      display: none;
+      color: #d92d20;
+      background: #fef3f2;
+      border: 1px solid #fecdca;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 <body>
@@ -89,6 +99,10 @@
   <div class="auth-container">
     <h1>Welcome back</h1>
     
+    <div id="error-message" class="error-box">
+      We couldn't find an account matching that email and password. Please sign up first.
+    </div>
+    
     <div class="form-group">
       <label for="email">Email address</label>
       <input type="email" id="email" placeholder="you@example.com">
@@ -97,7 +111,7 @@
       <label for="password">Password</label>
       <input type="password" id="password" placeholder="********">
     </div>
-    <button class="primary" onclick="window.location.href='index.html'">Log in</button>
+    <button class="primary" onclick="handleLogin(event)">Log in</button>
     
     <div class="divider">or</div>
     
@@ -122,6 +136,24 @@
       <a href="index.html" style="font-weight: normal; margin-top: 15px; display: inline-block;">Return to Prototype</a>
     </div>
   </div>
+
+  <script>
+    function handleLogin(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      if (!email || !password) {
+        document.getElementById('error-message').innerText = "Please enter both email and password.";
+        document.getElementById('error-message').style.display = 'block';
+        return;
+      }
+      
+      // Simulate checking a database where no accounts exist
+      document.getElementById('error-message').innerText = "We couldn't find an account matching that email and password. Please sign up first.";
+      document.getElementById('error-message').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
-

@@ -32,14 +32,7 @@
       </div>
       <div>
         <label for="location">Preferred location</label>
-        <select id="location">
-          <option value="">Any location</option>
-          <option>Remote</option>
-          <option>Delhi</option>
-          <option>Bengaluru</option>
-          <option>Mumbai</option>
-          <option>Pune</option>
-        </select>
+        <input id="location" list="cities" placeholder="e.g. Delhi, Remote..."><datalist id="cities"><option value="Remote"><option value="Delhi"><option value="Bengaluru"><option value="Mumbai"><option value="Pune"><option value="Hyderabad"><option value="Chennai"><option value="Kolkata"></datalist>
       </div>
       <div>
         <label for="mode">Work mode</label>
@@ -88,6 +81,7 @@
   <script src="app.js"></script>
 </body>
 </html>
+
 
 
 

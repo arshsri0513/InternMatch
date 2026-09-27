@@ -1,11 +1,11 @@
-const internships = [
+﻿const internships = [
   {
     id: 1,
     company: "Northstar Labs",
     role: "Software Engineering Intern",
     location: "Bengaluru",
     mode: "Hybrid",
-    stipend: "₹25k–35k/mo",
+    stipend: "â‚¹25kâ€“35k/mo",
     deadline: "15 Oct 2026",
     skills: ["Python", "SQL", "Git"],
     description:
@@ -17,7 +17,7 @@ const internships = [
     role: "Data Analyst Intern",
     location: "Remote",
     mode: "Remote",
-    stipend: "₹18k–25k/mo",
+    stipend: "â‚¹18kâ€“25k/mo",
     deadline: "20 Oct 2026",
     skills: ["Python", "SQL", "Pandas"],
     description:
@@ -29,7 +29,7 @@ const internships = [
     role: "Frontend Developer Intern",
     location: "Pune",
     mode: "On-site",
-    stipend: "₹20k–30k/mo",
+    stipend: "â‚¹20kâ€“30k/mo",
     deadline: "08 Oct 2026",
     skills: ["JavaScript", "React", "CSS"],
     description:
@@ -41,7 +41,7 @@ const internships = [
     role: "Backend Developer Intern",
     location: "Mumbai",
     mode: "Hybrid",
-    stipend: "₹25k–40k/mo",
+    stipend: "â‚¹25kâ€“40k/mo",
     deadline: "28 Oct 2026",
     skills: ["Python", "FastAPI", "SQL"],
     description:
@@ -53,7 +53,7 @@ const internships = [
     role: "ML Engineering Intern",
     location: "Remote",
     mode: "Remote",
-    stipend: "₹22k–32k/mo",
+    stipend: "â‚¹22kâ€“32k/mo",
     deadline: "02 Nov 2026",
     skills: ["Python", "ML", "Pandas"],
     description:
@@ -65,7 +65,7 @@ const internships = [
     role: "Java Developer Intern",
     location: "Delhi",
     mode: "Hybrid",
-    stipend: "₹18k–28k/mo",
+    stipend: "â‚¹18kâ€“28k/mo",
     deadline: "12 Oct 2026",
     skills: ["Java", "SQL", "Git"],
     description:
@@ -77,7 +77,7 @@ const internships = [
     role: "Product Data Intern",
     location: "Bengaluru",
     mode: "On-site",
-    stipend: "₹20k–30k/mo",
+    stipend: "â‚¹20kâ€“30k/mo",
     deadline: "30 Oct 2026",
     skills: ["SQL", "Excel", "Analytics"],
     description:
@@ -89,7 +89,7 @@ const internships = [
     role: "Cloud Engineering Intern",
     location: "Remote",
     mode: "Remote",
-    stipend: "₹24k–34k/mo",
+    stipend: "â‚¹24kâ€“34k/mo",
     deadline: "05 Nov 2026",
     skills: ["Python", "Linux", "Git"],
     description:
@@ -150,7 +150,7 @@ function filtered() {
 
     const lok =
       !locationEl.value ||
-      x.location === locationEl.value;
+      x.location.toLowerCase().includes(locationEl.value.toLowerCase());
 
     const mok =
       !mode.value ||
@@ -239,7 +239,7 @@ function render() {
       <div class="card-actions">
 
         <button class="save ${saved.has(x.id) ? "saved" : ""}">
-          ${saved.has(x.id) ? "✓ Saved" : "Save opportunity"}
+          ${saved.has(x.id) ? "âœ“ Saved" : "Save opportunity"}
         </button>
 
       </div>
@@ -304,7 +304,7 @@ function render() {
   resultMeta.textContent =
     `${data.length} opportunit${
       data.length === 1 ? "y" : "ies"
-    } shown · ${selected.size}/2 selected for comparison`;
+    } shown Â· ${selected.size}/2 selected for comparison`;
 
   updateCounts();
 }
